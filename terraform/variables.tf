@@ -54,4 +54,34 @@ variable "owner" {
   default = "devops"
 }
 
+## --------------------------------
+## Variables - RDS
+## --------------------------------
+
+variable "instance_types" {
+  type = "map"
+  description = "Instance Type"
+  default = {
+    RDS = "db.t2.micro"
+  }
+}
+
+variable "rds_vars" {
+  type = "map"
+  description = "RDS related vars"
+
+  default = {
+    name = "SB-RDS"
+    engine = "mysql"
+    engine_version = "5.5.57"
+    allocated_storage = "20"
+    db_name = "sbappdb"
+    master_username = "admin"
+    master_password = "dummy"
+    multi_az = true
+    backup_retention_period = 7
+    storage_type = "gp2"
+    publicly_accessible = false
+  }
+}
 

@@ -1,7 +1,7 @@
 {
     "version": 3,
     "terraform_version": "0.11.3",
-    "serial": 2,
+    "serial": 3,
     "lineage": "76bff14d-5fb8-4ebe-b667-c435d6a17ce3",
     "modules": [
         {
@@ -10,6 +10,125 @@
             ],
             "outputs": {},
             "resources": {
+                "aws_db_instance.SBRDS": {
+                    "type": "aws_db_instance",
+                    "depends_on": [
+                        "aws_db_parameter_group.SBRDSParamGroup",
+                        "aws_db_subnet_group.RDSDBSubnetGroup",
+                        "aws_security_group.SecurityGroupWideOpen"
+                    ],
+                    "primary": {
+                        "id": "webapp-01",
+                        "attributes": {
+                            "address": "webapp-01.cfmkynobgpay.us-east-1.rds.amazonaws.com",
+                            "allocated_storage": "20",
+                            "arn": "arn:aws:rds:us-east-1:158367233910:db:webapp-01",
+                            "auto_minor_version_upgrade": "true",
+                            "availability_zone": "us-east-1a",
+                            "backup_retention_period": "7",
+                            "backup_window": "03:05-03:35",
+                            "ca_cert_identifier": "rds-ca-2015",
+                            "copy_tags_to_snapshot": "false",
+                            "db_subnet_group_name": "terraform-20180903134545959900000002",
+                            "endpoint": "webapp-01.cfmkynobgpay.us-east-1.rds.amazonaws.com:3306",
+                            "engine": "mysql",
+                            "engine_version": "5.5.57",
+                            "hosted_zone_id": "Z2R2ITUGPM61AM",
+                            "iam_database_authentication_enabled": "false",
+                            "id": "webapp-01",
+                            "identifier": "webapp-01",
+                            "instance_class": "db.t2.micro",
+                            "iops": "0",
+                            "kms_key_id": "",
+                            "license_model": "general-public-license",
+                            "maintenance_window": "wed:04:06-wed:04:36",
+                            "monitoring_interval": "0",
+                            "multi_az": "true",
+                            "name": "sbappdb",
+                            "option_group_name": "default:mysql-5-5",
+                            "parameter_group_name": "terraform-20180903134545959800000001",
+                            "password": "myS3cr3t",
+                            "port": "3306",
+                            "publicly_accessible": "false",
+                            "replicas.#": "0",
+                            "replicate_source_db": "",
+                            "resource_id": "db-ZCOM77NMZDGVE25KVCCX74QIBU",
+                            "security_group_names.#": "0",
+                            "skip_final_snapshot": "true",
+                            "status": "available",
+                            "storage_encrypted": "false",
+                            "storage_type": "gp2",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-RDS",
+                            "tags.Owner": "devops",
+                            "timezone": "",
+                            "username": "admin",
+                            "vpc_security_group_ids.#": "1",
+                            "vpc_security_group_ids.1526746649": "sg-0ce2a1a7d0568abf8"
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "create": 2400000000000,
+                                "delete": 2400000000000,
+                                "update": 4800000000000
+                            }
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_db_parameter_group.SBRDSParamGroup": {
+                    "type": "aws_db_parameter_group",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "terraform-20180903134545959800000001",
+                        "attributes": {
+                            "arn": "arn:aws:rds:us-east-1:158367233910:pg:terraform-20180903134545959800000001",
+                            "description": "Database Parameter Group",
+                            "family": "mysql5.5",
+                            "id": "terraform-20180903134545959800000001",
+                            "name": "terraform-20180903134545959800000001",
+                            "parameter.#": "1",
+                            "parameter.950177639.apply_method": "immediate",
+                            "parameter.950177639.name": "log_bin_trust_function_creators",
+                            "parameter.950177639.value": "1",
+                            "tags.%": "0"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_db_subnet_group.RDSDBSubnetGroup": {
+                    "type": "aws_db_subnet_group",
+                    "depends_on": [
+                        "module.vpc"
+                    ],
+                    "primary": {
+                        "id": "terraform-20180903134545959900000002",
+                        "attributes": {
+                            "arn": "arn:aws:rds:us-east-1:158367233910:subgrp:terraform-20180903134545959900000002",
+                            "description": "RDS DB Subnet Group",
+                            "id": "terraform-20180903134545959900000002",
+                            "name": "terraform-20180903134545959900000002",
+                            "subnet_ids.#": "3",
+                            "subnet_ids.555747169": "subnet-0664ef5aac907e1f5",
+                            "subnet_ids.838457102": "subnet-06398be640d1f6090",
+                            "subnet_ids.981369160": "subnet-09c444b279f7a81d2",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-RDS",
+                            "tags.Owner": "devops"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
                 "aws_network_acl.network_acl": {
                     "type": "aws_network_acl",
                     "depends_on": [
