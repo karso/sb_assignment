@@ -49,6 +49,11 @@ variable "stack_name" {
   default = "WebApp-01"
 }
 
+variable "environment" {
+  description = "Environment"
+  default = "dev"
+}
+
 variable "owner" {
   description = "DevOps Owner"
   default = "devops"

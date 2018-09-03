@@ -49,7 +49,7 @@ module "vpc" {
 
   tags = {
     Name            = "${var.name}"
-    EnvironmentName = "${var.stack_name}"
+    EnvironmentName = "${var.environment}"
     Owner           = "${var.owner}"
   }
 }

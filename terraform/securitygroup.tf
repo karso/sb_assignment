@@ -23,7 +23,7 @@ resource "aws_security_group" "SecurityGroupWideOpen" {
 
   tags {
     Name            = "SGRDS"
-    EnvironmentName = "${var.stack_name}"
+    EnvironmentName = "${var.environment}"
     Owner           = "${var.owner}"
   }
 }

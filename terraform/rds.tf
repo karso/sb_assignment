@@ -8,7 +8,7 @@ resource "aws_db_subnet_group" "RDSDBSubnetGroup" {
 
   tags {
     Name            = "${lookup(var.rds_vars, "name")}"
-    EnvironmentName = "${var.stack_name}"
+    EnvironmentName = "${var.environment}"
     Owner           = "${var.owner}"
   }
 }
@@ -46,7 +46,7 @@ resource "aws_db_instance" "SBRDS" {
 
   tags {
     Name            = "${lookup(var.rds_vars, "name")}"
-    EnvironmentName = "${var.stack_name}"
+    EnvironmentName = "${var.environment}"
     Owner           = "${var.owner}"
   }
 }
