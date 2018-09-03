@@ -17,10 +17,14 @@ https://www.terraform.io/intro/getting-started/install.html
 * Clone the repo
 * Get into terraform directory
 * Run (type 'yes' when prompted)
+
 	`terraform init`
+
 	`terraform plan -var-file=terraform.values -out=terraform.plan`
+
 	`terraform apply -var-file=terraform.values -state=terraform.state`
-* Once the execution completes, lof into AWS console and browse to ElasticBeanstalk
+
+* Once the execution completes, log into AWS console and browse to ElasticBeanstalk
 * Upload and deploy the application zip file found in 'appdir'
 
 ## Author
