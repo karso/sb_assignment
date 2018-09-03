@@ -15,10 +15,6 @@ provider "null" {
   version = "1.0.0"
 }
 
-# Declare the data source
-# data "aws_caller_identity" "current" {}
-
-
 ## --------------------------------
 ## Locals variable
 ## --------------------------------
@@ -52,7 +48,6 @@ module "vpc" {
   enable_s3_endpoint           = true
 
   tags = {
-    # buildnumber     = "${var.build_num}"
     Name            = "${var.name}"
     EnvironmentName = "${var.stack_name}"
     Owner           = "${var.owner}"
