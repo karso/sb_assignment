@@ -1,0 +1,1413 @@
+{
+    "version": 3,
+    "terraform_version": "0.11.3",
+    "serial": 1,
+    "lineage": "76bff14d-5fb8-4ebe-b667-c435d6a17ce3",
+    "modules": [
+        {
+            "path": [
+                "root"
+            ],
+            "outputs": {},
+            "resources": {
+                "aws_network_acl.network_acl": {
+                    "type": "aws_network_acl",
+                    "depends_on": [
+                        "module.vpc"
+                    ],
+                    "primary": {
+                        "id": "acl-098dc3136a257ca86",
+                        "attributes": {
+                            "egress.#": "0",
+                            "id": "acl-098dc3136a257ca86",
+                            "ingress.#": "0",
+                            "subnet_ids.#": "3",
+                            "subnet_ids.555747169": "subnet-0664ef5aac907e1f5",
+                            "subnet_ids.838457102": "subnet-06398be640d1f6090",
+                            "subnet_ids.981369160": "subnet-09c444b279f7a81d2",
+                            "tags.%": "0",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_network_acl_rule.inbound_network_acl": {
+                    "type": "aws_network_acl_rule",
+                    "depends_on": [
+                        "aws_network_acl.network_acl"
+                    ],
+                    "primary": {
+                        "id": "nacl-4013982984",
+                        "attributes": {
+                            "cidr_block": "0.0.0.0/0",
+                            "egress": "false",
+                            "from_port": "1",
+                            "id": "nacl-4013982984",
+                            "ipv6_cidr_block": "",
+                            "network_acl_id": "acl-098dc3136a257ca86",
+                            "protocol": "all",
+                            "rule_action": "allow",
+                            "rule_number": "102",
+                            "to_port": "65535"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_network_acl_rule.outbound_network_acl": {
+                    "type": "aws_network_acl_rule",
+                    "depends_on": [
+                        "aws_network_acl.network_acl"
+                    ],
+                    "primary": {
+                        "id": "nacl-2516099836",
+                        "attributes": {
+                            "cidr_block": "0.0.0.0/0",
+                            "egress": "true",
+                            "from_port": "1",
+                            "id": "nacl-2516099836",
+                            "ipv6_cidr_block": "",
+                            "network_acl_id": "acl-098dc3136a257ca86",
+                            "protocol": "all",
+                            "rule_action": "allow",
+                            "rule_number": "102",
+                            "to_port": "65535"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                }
+            },
+            "depends_on": []
+        },
+        {
+            "path": [
+                "root",
+                "vpc"
+            ],
+            "outputs": {
+                "database_subnet_group": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "database_subnets": {
+                    "sensitive": false,
+                    "type": "list",
+                    "value": [
+                        "subnet-0664ef5aac907e1f5",
+                        "subnet-09c444b279f7a81d2",
+                        "subnet-06398be640d1f6090"
+                    ]
+                },
+                "database_subnets_cidr_blocks": {
+                    "sensitive": false,
+                    "type": "list",
+                    "value": [
+                        "10.51.41.0/24",
+                        "10.51.42.0/24",
+                        "10.51.43.0/24"
+                    ]
+                },
+                "default_network_acl_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "acl-0b3ccaa9927ad503f"
+                },
+                "default_route_table_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "rtb-0120efb6bce6b8542"
+                },
+                "default_security_group_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "sg-0fb6e8dd81f736b7f"
+                },
+                "default_vpc_cidr_block": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "default_vpc_default_network_acl_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "default_vpc_default_route_table_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "default_vpc_default_security_group_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "default_vpc_enable_dns_hostnames": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "default_vpc_enable_dns_support": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "default_vpc_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "default_vpc_instance_tenancy": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "default_vpc_main_route_table_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "elasticache_subnet_group": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "elasticache_subnet_group_name": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "elasticache_subnets": {
+                    "sensitive": false,
+                    "type": "list",
+                    "value": []
+                },
+                "elasticache_subnets_cidr_blocks": {
+                    "sensitive": false,
+                    "type": "list",
+                    "value": []
+                },
+                "igw_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "igw-0c52b116035fce32e"
+                },
+                "nat_ids": {
+                    "sensitive": false,
+                    "type": "list",
+                    "value": [
+                        "eipalloc-0bfd48b54a67a8382",
+                        "eipalloc-0bc6b56a725da5df2",
+                        "eipalloc-0b7bc9cf2475eb60a"
+                    ]
+                },
+                "nat_public_ips": {
+                    "sensitive": false,
+                    "type": "list",
+                    "value": [
+                        "52.71.136.33",
+                        "18.215.128.219",
+                        "54.152.56.214"
+                    ]
+                },
+                "natgw_ids": {
+                    "sensitive": false,
+                    "type": "list",
+                    "value": [
+                        "nat-03f46d386510085ce",
+                        "nat-0878df66816a2705a",
+                        "nat-0631f7d0da2a5e3a4"
+                    ]
+                },
+                "private_route_table_ids": {
+                    "sensitive": false,
+                    "type": "list",
+                    "value": [
+                        "rtb-0fdd0de816ce76b2a",
+                        "rtb-05dfc603847de62fc",
+                        "rtb-07978ff1e87c41cef"
+                    ]
+                },
+                "private_subnets": {
+                    "sensitive": false,
+                    "type": "list",
+                    "value": [
+                        "subnet-033940e3e4839f2be",
+                        "subnet-067deae48e83e9c60",
+                        "subnet-00c6836dd6aaf15f8"
+                    ]
+                },
+                "private_subnets_cidr_blocks": {
+                    "sensitive": false,
+                    "type": "list",
+                    "value": [
+                        "10.51.31.0/24",
+                        "10.51.32.0/24",
+                        "10.51.33.0/24"
+                    ]
+                },
+                "public_route_table_ids": {
+                    "sensitive": false,
+                    "type": "list",
+                    "value": [
+                        "rtb-0286c627f776a2375"
+                    ]
+                },
+                "public_subnets": {
+                    "sensitive": false,
+                    "type": "list",
+                    "value": [
+                        "subnet-06217f97264331937",
+                        "subnet-0bd1305be473e6bb5",
+                        "subnet-06584940674fa727a"
+                    ]
+                },
+                "public_subnets_cidr_blocks": {
+                    "sensitive": false,
+                    "type": "list",
+                    "value": [
+                        "10.51.11.0/24",
+                        "10.51.12.0/24",
+                        "10.51.13.0/24"
+                    ]
+                },
+                "redshift_subnet_group": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "redshift_subnets": {
+                    "sensitive": false,
+                    "type": "list",
+                    "value": []
+                },
+                "redshift_subnets_cidr_blocks": {
+                    "sensitive": false,
+                    "type": "list",
+                    "value": []
+                },
+                "vgw_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "vpc_cidr_block": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "10.51.0.0/16"
+                },
+                "vpc_enable_dns_hostnames": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "true"
+                },
+                "vpc_enable_dns_support": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "true"
+                },
+                "vpc_endpoint_dynamodb_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "vpc_endpoint_dynamodb_pl_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": ""
+                },
+                "vpc_endpoint_s3_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "vpce-0f08515d16fdc362e"
+                },
+                "vpc_endpoint_s3_pl_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "pl-63a5400a"
+                },
+                "vpc_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "vpc-0e6278eab0339bc00"
+                },
+                "vpc_instance_tenancy": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "default"
+                },
+                "vpc_main_route_table_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "rtb-0120efb6bce6b8542"
+                }
+            },
+            "resources": {
+                "aws_default_route_table.this": {
+                    "type": "aws_default_route_table",
+                    "depends_on": [
+                        "aws_vpc.this"
+                    ],
+                    "primary": {
+                        "id": "rtb-0120efb6bce6b8542",
+                        "attributes": {
+                            "default_route_table_id": "rtb-0120efb6bce6b8542",
+                            "id": "rtb-0120efb6bce6b8542",
+                            "propagating_vgws.#": "0",
+                            "route.#": "0",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-default",
+                            "tags.Owner": "devops",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_eip.nat.0": {
+                    "type": "aws_eip",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "eipalloc-0bfd48b54a67a8382",
+                        "attributes": {
+                            "association_id": "",
+                            "domain": "vpc",
+                            "id": "eipalloc-0bfd48b54a67a8382",
+                            "instance": "",
+                            "network_interface": "",
+                            "private_ip": "",
+                            "public_ip": "52.71.136.33",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-us-east-1a",
+                            "tags.Owner": "devops",
+                            "vpc": "true"
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "delete": 180000000000,
+                                "read": 900000000000,
+                                "update": 300000000000
+                            }
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_eip.nat.1": {
+                    "type": "aws_eip",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "eipalloc-0bc6b56a725da5df2",
+                        "attributes": {
+                            "association_id": "",
+                            "domain": "vpc",
+                            "id": "eipalloc-0bc6b56a725da5df2",
+                            "instance": "",
+                            "network_interface": "",
+                            "private_ip": "",
+                            "public_ip": "18.215.128.219",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-us-east-1b",
+                            "tags.Owner": "devops",
+                            "vpc": "true"
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "delete": 180000000000,
+                                "read": 900000000000,
+                                "update": 300000000000
+                            }
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_eip.nat.2": {
+                    "type": "aws_eip",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "eipalloc-0b7bc9cf2475eb60a",
+                        "attributes": {
+                            "association_id": "",
+                            "domain": "vpc",
+                            "id": "eipalloc-0b7bc9cf2475eb60a",
+                            "instance": "",
+                            "network_interface": "",
+                            "private_ip": "",
+                            "public_ip": "54.152.56.214",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-us-east-1c",
+                            "tags.Owner": "devops",
+                            "vpc": "true"
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "delete": 180000000000,
+                                "read": 900000000000,
+                                "update": 300000000000
+                            }
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_internet_gateway.this": {
+                    "type": "aws_internet_gateway",
+                    "depends_on": [
+                        "aws_vpc.this"
+                    ],
+                    "primary": {
+                        "id": "igw-0c52b116035fce32e",
+                        "attributes": {
+                            "id": "igw-0c52b116035fce32e",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack",
+                            "tags.Owner": "devops",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_main_route_table_association.this": {
+                    "type": "aws_main_route_table_association",
+                    "depends_on": [
+                        "aws_default_route_table.this",
+                        "aws_vpc.this"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-0379b2fff75c92589",
+                        "attributes": {
+                            "id": "rtbassoc-0379b2fff75c92589",
+                            "original_route_table_id": "rtb-0120efb6bce6b8542",
+                            "route_table_id": "rtb-0120efb6bce6b8542",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_nat_gateway.this.0": {
+                    "type": "aws_nat_gateway",
+                    "depends_on": [
+                        "aws_internet_gateway.this",
+                        "aws_subnet.public.*",
+                        "local.nat_gateway_ips"
+                    ],
+                    "primary": {
+                        "id": "nat-03f46d386510085ce",
+                        "attributes": {
+                            "allocation_id": "eipalloc-0bfd48b54a67a8382",
+                            "id": "nat-03f46d386510085ce",
+                            "network_interface_id": "eni-0d4a4cbf00c7784f7",
+                            "private_ip": "10.51.11.59",
+                            "public_ip": "52.71.136.33",
+                            "subnet_id": "subnet-06217f97264331937",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-us-east-1a",
+                            "tags.Owner": "devops"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_nat_gateway.this.1": {
+                    "type": "aws_nat_gateway",
+                    "depends_on": [
+                        "aws_internet_gateway.this",
+                        "aws_subnet.public.*",
+                        "local.nat_gateway_ips"
+                    ],
+                    "primary": {
+                        "id": "nat-0878df66816a2705a",
+                        "attributes": {
+                            "allocation_id": "eipalloc-0bc6b56a725da5df2",
+                            "id": "nat-0878df66816a2705a",
+                            "network_interface_id": "eni-0024e236d003c6683",
+                            "private_ip": "10.51.12.210",
+                            "public_ip": "18.215.128.219",
+                            "subnet_id": "subnet-0bd1305be473e6bb5",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-us-east-1b",
+                            "tags.Owner": "devops"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_nat_gateway.this.2": {
+                    "type": "aws_nat_gateway",
+                    "depends_on": [
+                        "aws_internet_gateway.this",
+                        "aws_subnet.public.*",
+                        "local.nat_gateway_ips"
+                    ],
+                    "primary": {
+                        "id": "nat-0631f7d0da2a5e3a4",
+                        "attributes": {
+                            "allocation_id": "eipalloc-0b7bc9cf2475eb60a",
+                            "id": "nat-0631f7d0da2a5e3a4",
+                            "network_interface_id": "eni-021f2052792bbbe92",
+                            "private_ip": "10.51.13.40",
+                            "public_ip": "54.152.56.214",
+                            "subnet_id": "subnet-06584940674fa727a",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-us-east-1c",
+                            "tags.Owner": "devops"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route.private_nat_gateway.0": {
+                    "type": "aws_route",
+                    "depends_on": [
+                        "aws_nat_gateway.this.*",
+                        "aws_route_table.private.*"
+                    ],
+                    "primary": {
+                        "id": "r-rtb-0fdd0de816ce76b2a1080289494",
+                        "attributes": {
+                            "destination_cidr_block": "0.0.0.0/0",
+                            "destination_prefix_list_id": "",
+                            "egress_only_gateway_id": "",
+                            "gateway_id": "",
+                            "id": "r-rtb-0fdd0de816ce76b2a1080289494",
+                            "instance_id": "",
+                            "instance_owner_id": "",
+                            "nat_gateway_id": "nat-03f46d386510085ce",
+                            "network_interface_id": "",
+                            "origin": "CreateRoute",
+                            "route_table_id": "rtb-0fdd0de816ce76b2a",
+                            "state": "active",
+                            "vpc_peering_connection_id": ""
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "create": 120000000000,
+                                "delete": 300000000000
+                            }
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route.private_nat_gateway.1": {
+                    "type": "aws_route",
+                    "depends_on": [
+                        "aws_nat_gateway.this.*",
+                        "aws_route_table.private.*"
+                    ],
+                    "primary": {
+                        "id": "r-rtb-05dfc603847de62fc1080289494",
+                        "attributes": {
+                            "destination_cidr_block": "0.0.0.0/0",
+                            "destination_prefix_list_id": "",
+                            "egress_only_gateway_id": "",
+                            "gateway_id": "",
+                            "id": "r-rtb-05dfc603847de62fc1080289494",
+                            "instance_id": "",
+                            "instance_owner_id": "",
+                            "nat_gateway_id": "nat-0878df66816a2705a",
+                            "network_interface_id": "",
+                            "origin": "CreateRoute",
+                            "route_table_id": "rtb-05dfc603847de62fc",
+                            "state": "active",
+                            "vpc_peering_connection_id": ""
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "create": 120000000000,
+                                "delete": 300000000000
+                            }
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route.private_nat_gateway.2": {
+                    "type": "aws_route",
+                    "depends_on": [
+                        "aws_nat_gateway.this.*",
+                        "aws_route_table.private.*"
+                    ],
+                    "primary": {
+                        "id": "r-rtb-07978ff1e87c41cef1080289494",
+                        "attributes": {
+                            "destination_cidr_block": "0.0.0.0/0",
+                            "destination_prefix_list_id": "",
+                            "egress_only_gateway_id": "",
+                            "gateway_id": "",
+                            "id": "r-rtb-07978ff1e87c41cef1080289494",
+                            "instance_id": "",
+                            "instance_owner_id": "",
+                            "nat_gateway_id": "nat-0631f7d0da2a5e3a4",
+                            "network_interface_id": "",
+                            "origin": "CreateRoute",
+                            "route_table_id": "rtb-07978ff1e87c41cef",
+                            "state": "active",
+                            "vpc_peering_connection_id": ""
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "create": 120000000000,
+                                "delete": 300000000000
+                            }
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route.public_internet_gateway": {
+                    "type": "aws_route",
+                    "depends_on": [
+                        "aws_internet_gateway.this",
+                        "aws_route_table.public"
+                    ],
+                    "primary": {
+                        "id": "r-rtb-0286c627f776a23751080289494",
+                        "attributes": {
+                            "destination_cidr_block": "0.0.0.0/0",
+                            "destination_prefix_list_id": "",
+                            "egress_only_gateway_id": "",
+                            "gateway_id": "igw-0c52b116035fce32e",
+                            "id": "r-rtb-0286c627f776a23751080289494",
+                            "instance_id": "",
+                            "instance_owner_id": "",
+                            "nat_gateway_id": "",
+                            "network_interface_id": "",
+                            "origin": "CreateRoute",
+                            "route_table_id": "rtb-0286c627f776a2375",
+                            "state": "active",
+                            "vpc_peering_connection_id": ""
+                        },
+                        "meta": {
+                            "e2bfb730-ecaa-11e6-8f88-34363bc7c4c0": {
+                                "create": 120000000000,
+                                "delete": 300000000000
+                            }
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table.private.0": {
+                    "type": "aws_route_table",
+                    "depends_on": [
+                        "aws_vpc.this",
+                        "local.max_subnet_length"
+                    ],
+                    "primary": {
+                        "id": "rtb-0fdd0de816ce76b2a",
+                        "attributes": {
+                            "id": "rtb-0fdd0de816ce76b2a",
+                            "propagating_vgws.#": "0",
+                            "route.#": "0",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-private-us-east-1a",
+                            "tags.Owner": "devops",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table.private.1": {
+                    "type": "aws_route_table",
+                    "depends_on": [
+                        "aws_vpc.this",
+                        "local.max_subnet_length"
+                    ],
+                    "primary": {
+                        "id": "rtb-05dfc603847de62fc",
+                        "attributes": {
+                            "id": "rtb-05dfc603847de62fc",
+                            "propagating_vgws.#": "0",
+                            "route.#": "0",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-private-us-east-1b",
+                            "tags.Owner": "devops",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table.private.2": {
+                    "type": "aws_route_table",
+                    "depends_on": [
+                        "aws_vpc.this",
+                        "local.max_subnet_length"
+                    ],
+                    "primary": {
+                        "id": "rtb-07978ff1e87c41cef",
+                        "attributes": {
+                            "id": "rtb-07978ff1e87c41cef",
+                            "propagating_vgws.#": "0",
+                            "route.#": "0",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-private-us-east-1c",
+                            "tags.Owner": "devops",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table.public": {
+                    "type": "aws_route_table",
+                    "depends_on": [
+                        "aws_vpc.this"
+                    ],
+                    "primary": {
+                        "id": "rtb-0286c627f776a2375",
+                        "attributes": {
+                            "id": "rtb-0286c627f776a2375",
+                            "propagating_vgws.#": "0",
+                            "route.#": "0",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-public",
+                            "tags.Owner": "devops",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.database.0": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.private.*",
+                        "aws_subnet.database.*"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-0e077d3f84d54b308",
+                        "attributes": {
+                            "id": "rtbassoc-0e077d3f84d54b308",
+                            "route_table_id": "rtb-0fdd0de816ce76b2a",
+                            "subnet_id": "subnet-0664ef5aac907e1f5"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.database.1": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.private.*",
+                        "aws_subnet.database.*"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-08e7fb856ba95ffd2",
+                        "attributes": {
+                            "id": "rtbassoc-08e7fb856ba95ffd2",
+                            "route_table_id": "rtb-05dfc603847de62fc",
+                            "subnet_id": "subnet-09c444b279f7a81d2"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.database.2": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.private.*",
+                        "aws_subnet.database.*"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-0054d2ed3f803bad0",
+                        "attributes": {
+                            "id": "rtbassoc-0054d2ed3f803bad0",
+                            "route_table_id": "rtb-07978ff1e87c41cef",
+                            "subnet_id": "subnet-06398be640d1f6090"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.private.0": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.private.*",
+                        "aws_subnet.private.*"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-0ee475cba2c1befe9",
+                        "attributes": {
+                            "id": "rtbassoc-0ee475cba2c1befe9",
+                            "route_table_id": "rtb-0fdd0de816ce76b2a",
+                            "subnet_id": "subnet-033940e3e4839f2be"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.private.1": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.private.*",
+                        "aws_subnet.private.*"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-0db475f6bcaf2e464",
+                        "attributes": {
+                            "id": "rtbassoc-0db475f6bcaf2e464",
+                            "route_table_id": "rtb-05dfc603847de62fc",
+                            "subnet_id": "subnet-067deae48e83e9c60"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.private.2": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.private.*",
+                        "aws_subnet.private.*"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-0e89d3386a70be059",
+                        "attributes": {
+                            "id": "rtbassoc-0e89d3386a70be059",
+                            "route_table_id": "rtb-07978ff1e87c41cef",
+                            "subnet_id": "subnet-00c6836dd6aaf15f8"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.public.0": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.public",
+                        "aws_subnet.public.*"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-09cb1547bb884c4d5",
+                        "attributes": {
+                            "id": "rtbassoc-09cb1547bb884c4d5",
+                            "route_table_id": "rtb-0286c627f776a2375",
+                            "subnet_id": "subnet-06217f97264331937"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.public.1": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.public",
+                        "aws_subnet.public.*"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-08cd26983051fb903",
+                        "attributes": {
+                            "id": "rtbassoc-08cd26983051fb903",
+                            "route_table_id": "rtb-0286c627f776a2375",
+                            "subnet_id": "subnet-0bd1305be473e6bb5"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.public.2": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.public",
+                        "aws_subnet.public.*"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-034b5a222d310246e",
+                        "attributes": {
+                            "id": "rtbassoc-034b5a222d310246e",
+                            "route_table_id": "rtb-0286c627f776a2375",
+                            "subnet_id": "subnet-06584940674fa727a"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.database.0": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.this"
+                    ],
+                    "primary": {
+                        "id": "subnet-0664ef5aac907e1f5",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "us-east-1a",
+                            "cidr_block": "10.51.41.0/24",
+                            "id": "subnet-0664ef5aac907e1f5",
+                            "map_public_ip_on_launch": "false",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-db-us-east-1a",
+                            "tags.Owner": "devops",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.database.1": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.this"
+                    ],
+                    "primary": {
+                        "id": "subnet-09c444b279f7a81d2",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "us-east-1b",
+                            "cidr_block": "10.51.42.0/24",
+                            "id": "subnet-09c444b279f7a81d2",
+                            "map_public_ip_on_launch": "false",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-db-us-east-1b",
+                            "tags.Owner": "devops",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.database.2": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.this"
+                    ],
+                    "primary": {
+                        "id": "subnet-06398be640d1f6090",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "us-east-1c",
+                            "cidr_block": "10.51.43.0/24",
+                            "id": "subnet-06398be640d1f6090",
+                            "map_public_ip_on_launch": "false",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-db-us-east-1c",
+                            "tags.Owner": "devops",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.private.0": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.this"
+                    ],
+                    "primary": {
+                        "id": "subnet-033940e3e4839f2be",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "us-east-1a",
+                            "cidr_block": "10.51.31.0/24",
+                            "id": "subnet-033940e3e4839f2be",
+                            "map_public_ip_on_launch": "false",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-private-us-east-1a",
+                            "tags.Owner": "devops",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.private.1": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.this"
+                    ],
+                    "primary": {
+                        "id": "subnet-067deae48e83e9c60",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "us-east-1b",
+                            "cidr_block": "10.51.32.0/24",
+                            "id": "subnet-067deae48e83e9c60",
+                            "map_public_ip_on_launch": "false",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-private-us-east-1b",
+                            "tags.Owner": "devops",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.private.2": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.this"
+                    ],
+                    "primary": {
+                        "id": "subnet-00c6836dd6aaf15f8",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "us-east-1c",
+                            "cidr_block": "10.51.33.0/24",
+                            "id": "subnet-00c6836dd6aaf15f8",
+                            "map_public_ip_on_launch": "false",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-private-us-east-1c",
+                            "tags.Owner": "devops",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.public.0": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.this"
+                    ],
+                    "primary": {
+                        "id": "subnet-06217f97264331937",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "us-east-1a",
+                            "cidr_block": "10.51.11.0/24",
+                            "id": "subnet-06217f97264331937",
+                            "map_public_ip_on_launch": "true",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-public-us-east-1a",
+                            "tags.Owner": "devops",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.public.1": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.this"
+                    ],
+                    "primary": {
+                        "id": "subnet-0bd1305be473e6bb5",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "us-east-1b",
+                            "cidr_block": "10.51.12.0/24",
+                            "id": "subnet-0bd1305be473e6bb5",
+                            "map_public_ip_on_launch": "true",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-public-us-east-1b",
+                            "tags.Owner": "devops",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.public.2": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.this"
+                    ],
+                    "primary": {
+                        "id": "subnet-06584940674fa727a",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "us-east-1c",
+                            "cidr_block": "10.51.13.0/24",
+                            "id": "subnet-06584940674fa727a",
+                            "map_public_ip_on_launch": "true",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack-public-us-east-1c",
+                            "tags.Owner": "devops",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_vpc.this": {
+                    "type": "aws_vpc",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "vpc-0e6278eab0339bc00",
+                        "attributes": {
+                            "assign_generated_ipv6_cidr_block": "false",
+                            "cidr_block": "10.51.0.0/16",
+                            "default_network_acl_id": "acl-0b3ccaa9927ad503f",
+                            "default_route_table_id": "rtb-0120efb6bce6b8542",
+                            "default_security_group_id": "sg-0fb6e8dd81f736b7f",
+                            "dhcp_options_id": "dopt-9210f6f7",
+                            "enable_classiclink": "false",
+                            "enable_classiclink_dns_support": "false",
+                            "enable_dns_hostnames": "true",
+                            "enable_dns_support": "true",
+                            "id": "vpc-0e6278eab0339bc00",
+                            "instance_tenancy": "default",
+                            "main_route_table_id": "rtb-0120efb6bce6b8542",
+                            "tags.%": "3",
+                            "tags.EnvironmentName": "WebApp-01",
+                            "tags.Name": "SB-Stack",
+                            "tags.Owner": "devops"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_vpc_endpoint.s3": {
+                    "type": "aws_vpc_endpoint",
+                    "depends_on": [
+                        "aws_vpc.this",
+                        "data.aws_vpc_endpoint_service.s3"
+                    ],
+                    "primary": {
+                        "id": "vpce-0f08515d16fdc362e",
+                        "attributes": {
+                            "cidr_blocks.#": "2",
+                            "cidr_blocks.0": "54.231.0.0/17",
+                            "cidr_blocks.1": "52.216.0.0/15",
+                            "dns_entry.#": "0",
+                            "id": "vpce-0f08515d16fdc362e",
+                            "network_interface_ids.#": "0",
+                            "policy": "{\"Statement\":[{\"Action\":\"*\",\"Effect\":\"Allow\",\"Principal\":\"*\",\"Resource\":\"*\"}],\"Version\":\"2008-10-17\"}",
+                            "prefix_list_id": "pl-63a5400a",
+                            "private_dns_enabled": "false",
+                            "route_table_ids.#": "0",
+                            "security_group_ids.#": "0",
+                            "service_name": "com.amazonaws.us-east-1.s3",
+                            "state": "available",
+                            "subnet_ids.#": "0",
+                            "vpc_endpoint_type": "Gateway",
+                            "vpc_id": "vpc-0e6278eab0339bc00"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_vpc_endpoint_route_table_association.private_s3.0": {
+                    "type": "aws_vpc_endpoint_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.private.*",
+                        "aws_vpc_endpoint.s3"
+                    ],
+                    "primary": {
+                        "id": "a-vpce-0f08515d16fdc362e120870684",
+                        "attributes": {
+                            "id": "a-vpce-0f08515d16fdc362e120870684",
+                            "route_table_id": "rtb-0fdd0de816ce76b2a",
+                            "vpc_endpoint_id": "vpce-0f08515d16fdc362e"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_vpc_endpoint_route_table_association.private_s3.1": {
+                    "type": "aws_vpc_endpoint_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.private.*",
+                        "aws_vpc_endpoint.s3"
+                    ],
+                    "primary": {
+                        "id": "a-vpce-0f08515d16fdc362e2117344986",
+                        "attributes": {
+                            "id": "a-vpce-0f08515d16fdc362e2117344986",
+                            "route_table_id": "rtb-05dfc603847de62fc",
+                            "vpc_endpoint_id": "vpce-0f08515d16fdc362e"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_vpc_endpoint_route_table_association.private_s3.2": {
+                    "type": "aws_vpc_endpoint_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.private.*",
+                        "aws_vpc_endpoint.s3"
+                    ],
+                    "primary": {
+                        "id": "a-vpce-0f08515d16fdc362e283847735",
+                        "attributes": {
+                            "id": "a-vpce-0f08515d16fdc362e283847735",
+                            "route_table_id": "rtb-07978ff1e87c41cef",
+                            "vpc_endpoint_id": "vpce-0f08515d16fdc362e"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_vpc_endpoint_route_table_association.public_s3": {
+                    "type": "aws_vpc_endpoint_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.public",
+                        "aws_vpc_endpoint.s3"
+                    ],
+                    "primary": {
+                        "id": "a-vpce-0f08515d16fdc362e301764304",
+                        "attributes": {
+                            "id": "a-vpce-0f08515d16fdc362e301764304",
+                            "route_table_id": "rtb-0286c627f776a2375",
+                            "vpc_endpoint_id": "vpce-0f08515d16fdc362e"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "data.aws_vpc_endpoint_service.s3": {
+                    "type": "aws_vpc_endpoint_service",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "195798706",
+                        "attributes": {
+                            "acceptance_required": "false",
+                            "availability_zones.#": "6",
+                            "availability_zones.1252502072": "us-east-1f",
+                            "availability_zones.1305112097": "us-east-1b",
+                            "availability_zones.2762590996": "us-east-1d",
+                            "availability_zones.3551460226": "us-east-1e",
+                            "availability_zones.3569565595": "us-east-1a",
+                            "availability_zones.986537655": "us-east-1c",
+                            "base_endpoint_dns_names.#": "1",
+                            "base_endpoint_dns_names.1629071467": "s3.us-east-1.amazonaws.com",
+                            "id": "195798706",
+                            "owner": "amazon",
+                            "private_dns_name": "",
+                            "service": "s3",
+                            "service_name": "com.amazonaws.us-east-1.s3",
+                            "service_type": "Gateway",
+                            "vpc_endpoint_policy_supported": "true"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                }
+            },
+            "depends_on": []
+        }
+    ]
+}
