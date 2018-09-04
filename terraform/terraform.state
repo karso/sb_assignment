@@ -1,7 +1,7 @@
 {
     "version": 3,
     "terraform_version": "0.11.3",
-    "serial": 6,
+    "serial": 8,
     "lineage": "76bff14d-5fb8-4ebe-b667-c435d6a17ce3",
     "modules": [
         {

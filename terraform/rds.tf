@@ -31,7 +31,7 @@ resource "aws_db_instance" "SBRDS" {
   allocated_storage       = "${lookup(var.rds_vars, "allocated_storage")}"
   engine                  = "${lookup(var.rds_vars, "engine")}"
   engine_version          = "${lookup(var.rds_vars, "engine_version")}"
-  instance_class          = "${lookup(var.instance_types, "RDS")}"
+  instance_class          = "${var.rds_instance_type}"
   multi_az                = "${lookup(var.rds_vars, "multi_az")}"
   name                    = "${lookup(var.rds_vars, "db_name")}"
   username                = "${lookup(var.rds_vars, "master_username")}"

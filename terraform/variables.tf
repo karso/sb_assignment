@@ -63,12 +63,9 @@ variable "owner" {
 ## Variables - RDS
 ## --------------------------------
 
-variable "instance_types" {
-  type = "map"
-  description = "Instance Type"
-  default = {
-    RDS = "db.t2.micro"
-  }
+variable "rds_instance_type" {
+  description = "RDS Instance Type"
+  default = "db.t2.micro"
 }
 
 variable "rds_vars" {
@@ -90,3 +87,41 @@ variable "rds_vars" {
   }
 }
 
+## --------------------------------
+## Variables - EB
+## --------------------------------
+
+variable "ws_instance_type" {
+  description = "WebServer Instance Type"
+  default = "t2.micro"
+}
+
+variable "minsize" {
+  description = "MinSize"
+  default = "2"
+}
+
+variable "maxsize" {
+  description = "maxsize"
+  default = "3"
+}
+
+variable "service_role" {
+  description = "ServiceRole"
+  default = "AWSServiceRoleForElasticBeanstalk"
+}
+
+variable "iam_instance_prof" {
+  description = "IamInstanceProfile"
+  default = "aws-elasticbeanstalk-ec2-role"
+}
+
+variable "document_root" {
+  description = "Document Root"
+  default = ""
+}
+
+variable "max_batch_size" {
+  description = "MaxBatchSize"
+  default = "1"
+}

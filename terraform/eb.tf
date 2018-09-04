@@ -18,7 +18,7 @@ resource "aws_elastic_beanstalk_environment" "sb-web-app-env" {
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name = "IamInstanceProfile"
-    value = "aws-elasticbeanstalk-ec2-role"
+    value = "${var.iam_instance_prof}"
   }
   setting {
     namespace = "aws:ec2:vpc"
@@ -48,7 +48,7 @@ resource "aws_elastic_beanstalk_environment" "sb-web-app-env" {
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name = "InstanceType"
-    value = "t2.micro"
+    value = "${var.ws_instance_type}"
   }
   setting {
     namespace = "aws:autoscaling:asg"
@@ -58,17 +58,17 @@ resource "aws_elastic_beanstalk_environment" "sb-web-app-env" {
   setting {
     namespace = "aws:autoscaling:asg"
     name = "MinSize"
-    value = "2"
+    value = "${var.minsize}"
   }
   setting {
     namespace = "aws:autoscaling:asg"
     name = "MaxSize"
-    value = "5"
+    value = "${var.maxsize}"
   }
   setting {
     namespace = "aws:elasticbeanstalk:environment"
     name = "ServiceRole"
-    value   = "AWSServiceRoleForElasticBeanstalk"
+    value   = "${var.service_role}"
   }
   setting {
     namespace = "aws:elasticbeanstalk:application:environment"
@@ -103,7 +103,7 @@ resource "aws_elastic_beanstalk_environment" "sb-web-app-env" {
   setting {
     namespace = "aws:autoscaling:updatepolicy:rollingupdate"
     name = "MaxBatchSize"
-    value = "1"
+    value = "${var.max_batch_size}"
   }
   setting {
     namespace = "aws:elb:loadbalancer"
@@ -138,7 +138,7 @@ resource "aws_elastic_beanstalk_environment" "sb-web-app-env" {
   setting {
     namespace = "aws:elasticbeanstalk:container:php:phpini"
     name      = "document_root"
-    value     = ""
+    value     = "${var.document_root}"
   }
   setting {
     namespace = "aws:elasticbeanstalk:application:environment"
