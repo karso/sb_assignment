@@ -28,7 +28,8 @@ https://www.terraform.io/intro/getting-started/install.html
 * Upload and deploy the application zip file found in 'appdir'
 
 ## ToDo
-Try to use Elastic Beanstalk module
+Try to use Elastic Beanstalk module from Terrform registry.
+https://registry.terraform.io/
 
 ## Author
 Soumitra Kar
