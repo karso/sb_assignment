@@ -27,6 +27,9 @@ https://www.terraform.io/intro/getting-started/install.html
 * Once the execution completes, log into AWS console and browse to ElasticBeanstalk
 * Upload and deploy the application zip file found in 'appdir'
 
+## ToDo
+Try to use Elastic Beanstalk module
+
 ## Author
 Soumitra Kar
 
